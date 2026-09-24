@@ -267,6 +267,7 @@
     .gradient-text {
       background: var(--primary-gradient);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -405,8 +406,22 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3.2rem;
+      overflow: hidden;
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .avatar-box:hover .avatar-img {
+      transform: scale(1.06);
     }
 
     .status-pill {
@@ -724,7 +739,9 @@
         <div class="about-card">
           <div class="profile-visual">
             <div class="avatar-wrapper">
-              <div class="avatar-box">👨‍💻</div>
+              <div class="avatar-box">
+                <img src="profile.jpg" alt="Brenan Jay Reconalla" class="avatar-img" />
+              </div>
             </div>
             <div class="status-pill">
               <span>●</span> In Learning &amp; Growth Mode
