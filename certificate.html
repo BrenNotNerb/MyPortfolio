@@ -49,64 +49,47 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
     }
 
-    /* ── Certificate Preview ─────────────────────────────────── */
+    /* Certificate Preview */
+.cert-preview {
+  position: relative;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none; /* Prevent clicking/zooming the certificate */
+}
 
-    .cert-preview {
-      position: relative;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
+/* Google Drive PDF */
+.certificate-frame {
+  width: 100%;
+  height: 200px;
+  border: none;
+  display: block;
+  background: #fff;
+  pointer-events: none; /* Disable interaction with PDF viewer */
+}
 
-    .cert-preview-1 {
-      background: linear-gradient(135deg, #1e1a40, #2d1f6b);
-    }
-
-    .cert-preview-2 {
-      background: linear-gradient(135deg, #0a2240, #0a3f6e);
-    }
-
-    .cert-preview-3 {
-      background: linear-gradient(135deg, #1a0a30, #3b1a6e);
-    }
-
-    .cert-preview-4 {
-      background: linear-gradient(135deg, #0f2a1e, #0d4a35);
-    }
-
-    /* Google Drive PDF */
-
-    .certificate-frame {
-      width: 100%;
-      height: 200px;
-      border: none;
-      display: block;
-      background: #fff;
-    }
-
-    /* Certificate ribbon */
-
-    .cert-ribbon {
-      position: absolute;
-      z-index: 5;
-      top: 14px;
-      right: -22px;
-      background: linear-gradient(
-        135deg,
-        var(--primary),
-        var(--secondary)
-      );
-      color: #fff;
-      font-size: 0.65rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 0.25rem 2.5rem;
-      transform: rotate(35deg);
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    }
+/* Certificate ribbon */
+.cert-ribbon {
+  position: absolute;
+  z-index: 5;
+  top: 14px;
+  right: -22px;
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    var(--secondary)
+  );
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 0.25rem 2.5rem;
+  transform: rotate(35deg);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
 
     /* ── Certificate Body ────────────────────────────────────── */
 
