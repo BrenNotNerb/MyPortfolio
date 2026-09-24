@@ -3,684 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Brenan Jay Reconalla | IT Professionalism Journey</title>
-  <meta name="description" content="Portfolio of Brenan Jay Reconalla - BSIT Student and Future IT Professional. Building competence, integrity, and ethical responsibility in Information Technology." />
+  <title>Home | Brenan Jay Reconalla - IT Professionalism Journey</title>
+  <meta name="description" content="Welcome to the IT Professionalism Portfolio of Brenan Jay Reconalla, BSIT student. Building competence, integrity, and ethical responsibility." />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --bg: #070a13;
-      --bg-surface: rgba(15, 23, 42, 0.65);
-      --bg-surface-hover: rgba(30, 41, 59, 0.75);
-      --border: rgba(255, 255, 255, 0.08);
-      --border-accent: rgba(99, 102, 241, 0.35);
-      --primary: #6366f1;
-      --primary-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
-      --secondary: #06b6d4;
-      --accent: #ec4899;
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-      --card-radius: 20px;
-      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-      min-height: 100vh;
-      position: relative;
-    }
-
-    /* Ambient Background Glow */
-    .ambient-glow {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .glow-sphere {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(130px);
-      opacity: 0.18;
-    }
-
-    .sphere-1 {
-      width: 550px;
-      height: 550px;
-      background: #4f46e5;
-      top: -120px;
-      left: -120px;
-      animation: floatOrb 22s infinite alternate ease-in-out;
-    }
-
-    .sphere-2 {
-      width: 500px;
-      height: 500px;
-      background: #06b6d4;
-      bottom: 5%;
-      right: -100px;
-      animation: floatOrb 26s infinite alternate-reverse ease-in-out;
-    }
-
-    .sphere-3 {
-      width: 350px;
-      height: 350px;
-      background: #ec4899;
-      top: 45%;
-      left: 55%;
-      animation: floatOrb 18s infinite alternate ease-in-out;
-      opacity: 0.12;
-    }
-
-    @keyframes floatOrb {
-      0% { transform: translate(0, 0) scale(1); }
-      100% { transform: translate(60px, 80px) scale(1.1); }
-    }
-
-    /* Noise Texture */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.02'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .page-wrapper {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* Container */
-    .container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    /* Header & Navigation */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(7, 10, 19, 0.75);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      transition: var(--transition);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.25rem 0;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      text-decoration: none;
-      color: #fff;
-    }
-
-    .brand-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 0.95rem;
-      color: #fff;
-      box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
-    }
-
-    .brand-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      letter-spacing: -0.01em;
-    }
-
-    .brand-tag {
-      font-size: 0.75rem;
-      color: var(--secondary);
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 2rem;
-    }
-
-    .nav-links a {
-      color: var(--text-muted);
-      text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-      position: relative;
-      transition: var(--transition);
-      padding: 0.3rem 0;
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: #fff;
-    }
-
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 2px;
-      background: var(--primary-gradient);
-      transition: var(--transition);
-      border-radius: 2px;
-    }
-
-    .nav-links a:hover::after,
-    .nav-links a.active::after {
-      width: 100%;
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 6.5rem 0 4.5rem;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(99, 102, 241, 0.1);
-      border: 1px solid var(--border-accent);
-      padding: 0.4rem 1.1rem;
-      border-radius: 999px;
-      font-size: 0.85rem;
-      font-weight: 600;
-      color: #c7d2fe;
-      margin-bottom: 2rem;
-      backdrop-filter: blur(8px);
-    }
-
-    .badge-indicator {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 10px #10b981;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(1.2); }
-    }
-
-    .hero-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.4rem, 5.5vw, 4.2rem);
-      font-weight: 800;
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-      max-width: 950px;
-      margin-bottom: 1.25rem;
-    }
-
-    .gradient-text {
-      background: var(--primary-gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--text-muted);
-      max-width: 680px;
-      margin-bottom: 2.5rem;
-      font-weight: 400;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.85rem 1.8rem;
-      border-radius: 12px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .btn-primary {
-      background: var(--primary-gradient);
-      color: #fff;
-      box-shadow: 0 4px 25px rgba(99, 102, 241, 0.45);
-      border: none;
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(99, 102, 241, 0.65);
-    }
-
-    .btn-outline {
-      background: var(--bg-surface);
-      color: var(--text);
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-    }
-
-    .btn-outline:hover {
-      background: var(--bg-surface-hover);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-3px);
-    }
-
-    /* Section Typography */
-    .section {
-      padding: 5rem 0;
-    }
-
-    .section-header {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 3.5rem;
-    }
-
-    .section-tag {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--secondary);
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      display: block;
-    }
-
-    .section-heading {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2rem, 3.5vw, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 1rem;
-    }
-
-    .section-desc {
-      color: var(--text-muted);
-      font-size: 1.05rem;
-    }
-
-    /* About Section */
-    .about-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
-      padding: 3.5rem;
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 3.5rem;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(12px);
-    }
-
-    .about-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 3px;
-      background: var(--primary-gradient);
-    }
-
-    .profile-visual {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 1.2rem;
-    }
-
-    .avatar-wrapper {
-      position: relative;
-    }
-
-    .avatar-box {
-      width: 140px;
-      height: 140px;
-      border-radius: 30px;
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));
-      border: 2px solid var(--border-accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-      position: relative;
-    }
-
-    .avatar-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .avatar-box:hover .avatar-img {
-      transform: scale(1.06);
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      padding: 0.3rem 0.8rem;
-      background: rgba(16, 185, 129, 0.1);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #34d399;
-    }
-
-    .about-content h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.85rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.25rem;
-    }
-
-    .degree-title {
-      color: var(--secondary);
-      font-size: 1.05rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      display: inline-block;
-    }
-
-    .about-bio {
-      color: #cbd5e1;
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .pillars-mini-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1rem;
-    }
-
-    .mini-pill {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 0.85rem 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-
-    .mini-pill span {
-      font-size: 1.25rem;
-    }
-
-    /* 5 R's Section */
-    .five-rs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .r-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
-      padding: 2.25rem;
-      transition: var(--transition);
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      backdrop-filter: blur(12px);
-    }
-
-    .r-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--border-accent);
-      background: var(--bg-surface-hover);
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    }
-
-    .r-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1.5rem;
-    }
-
-    .r-number {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--secondary);
-      background: rgba(6, 182, 212, 0.1);
-      padding: 0.35rem 0.85rem;
-      border-radius: 999px;
-      border: 1px solid rgba(6, 182, 212, 0.25);
-    }
-
-    .r-icon {
-      font-size: 2.2rem;
-      filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
-    }
-
-    .r-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 0.85rem;
-    }
-
-    .r-desc {
-      color: var(--text-muted);
-      font-size: 0.98rem;
-      line-height: 1.7;
-    }
-
-    /* Highlight Card for Ethics */
-    .r-card.highlight {
-      border-color: rgba(99, 102, 241, 0.45);
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(15, 23, 42, 0.75));
-    }
-
-    /* Activities Section */
-    .activities-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .activity-card {
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--card-radius);
-      padding: 2.25rem;
-      transition: var(--transition);
-      backdrop-filter: blur(12px);
-    }
-
-    .activity-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-5px);
-    }
-
-    .activity-badge {
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--primary);
-      margin-bottom: 1rem;
-      display: inline-block;
-    }
-
-    .activity-title {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 0.75rem;
-      color: #fff;
-    }
-
-    .activity-desc {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.65;
-    }
-
-    /* Quote Banner */
-    .quote-section {
-      padding: 4rem 0 6rem;
-    }
-
-    .quote-box {
-      background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(6, 182, 212, 0.1));
-      border: 1px solid var(--border-accent);
-      border-radius: var(--card-radius);
-      padding: 3.5rem 3rem;
-      text-align: center;
-      position: relative;
-      backdrop-filter: blur(16px);
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-    }
-
-    .quote-icon {
-      font-size: 3rem;
-      color: var(--secondary);
-      line-height: 1;
-      margin-bottom: 1.25rem;
-      opacity: 0.8;
-    }
-
-    .quote-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.75rem);
-      font-weight: 600;
-      line-height: 1.5;
-      color: #f1f5f9;
-      max-width: 900px;
-      margin: 0 auto 1.5rem;
-    }
-
-    .quote-author {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      font-weight: 600;
-    }
-
-    /* Footer */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2.5rem 0;
-      background: rgba(7, 10, 19, 0.95);
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.92rem;
-    }
-
-    .footer-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.75rem;
-    }
-
-    .footer-copy {
-      font-weight: 500;
-    }
-
-    .footer-sub {
-      font-size: 0.85rem;
-      color: #64748b;
-    }
-
-    /* Responsive */
-    @media (max-width: 860px) {
-      .about-card {
-        grid-template-columns: 1fr;
-        padding: 2.5rem;
-        gap: 2.5rem;
-      }
-      .nav-links {
-        display: none;
-      }
-    }
-  </style>
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Background Ambiance -->
+  <!-- Ambient Glow Background -->
   <div class="ambient-glow" aria-hidden="true">
     <div class="glow-sphere sphere-1"></div>
     <div class="glow-sphere sphere-2"></div>
@@ -688,22 +24,25 @@
   </div>
 
   <div class="page-wrapper">
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
       <div class="container nav-container">
-        <a href="#home" class="brand" id="nav-brand">
+        <a href="index.html" class="brand" id="nav-brand">
           <div class="brand-avatar">BR</div>
           <div class="brand-info">
             <span class="brand-name">Brenan Jay Reconalla</span>
             <span class="brand-tag">BSIT Student</span>
           </div>
         </a>
+
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu">☰</button>
+
         <nav>
-          <ul class="nav-links">
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#five-rs">The 5 R's</a></li>
-            <li><a href="#activity">Activity</a></li>
+          <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="fivers.html">The 5 R's</a></li>
+            <li><a href="activity.html">Activity</a></li>
           </ul>
         </nav>
       </div>
@@ -711,7 +50,7 @@
 
     <main>
       <!-- Hero Section -->
-      <section class="hero container" id="home">
+      <section class="hero container">
         <div class="badge">
           <span class="badge-indicator"></span>
           BSIT Student | Future IT Professional
@@ -723,155 +62,50 @@
           Building competence, integrity, and ethical responsibility in Information Technology.
         </p>
         <div class="hero-buttons">
-          <a href="#five-rs" class="btn btn-primary" id="btn-explore-rs">Explore The 5 R's &darr;</a>
-          <a href="#about" class="btn btn-outline" id="btn-about-me">About Me</a>
+          <a href="about.html" class="btn btn-primary" id="btn-hero-about">About Me &rarr;</a>
+          <a href="fivers.html" class="btn btn-outline" id="btn-hero-fivers">The 5 R's</a>
+          <a href="activity.html" class="btn btn-outline" id="btn-hero-activity">Activities</a>
         </div>
       </section>
 
-      <!-- About Me Section -->
-      <section class="section container" id="about">
+      <!-- Portfolio Sections Overview -->
+      <section class="section container">
         <div class="section-header">
-          <span class="section-tag">Biography</span>
-          <h2 class="section-heading">About Me</h2>
-          <p class="section-desc">A continuous journey of technical growth, values, and ethical dedication.</p>
+          <span class="section-tag">Explore Portfolio</span>
+          <h2 class="section-heading">Key Portfolio Sections</h2>
+          <p class="section-desc">Navigate through my background, ethical principles, and academic activities.</p>
         </div>
 
-        <div class="about-card">
-          <div class="profile-visual">
-            <div class="avatar-wrapper">
-              <div class="avatar-box">
-                <img src="profile.jpg" alt="Brenan Jay Reconalla" class="avatar-img" />
-              </div>
-            </div>
-            <div class="status-pill">
-              <span>●</span> In Learning &amp; Growth Mode
-            </div>
-          </div>
-          <div class="about-content">
-            <h3>Brenan Jay Reconalla</h3>
-            <span class="degree-title">Bachelor of Science in Information Technology</span>
-            <p class="about-bio">
-              I am an IT student who is still learning and improving my skills. I want to become better at technology while also learning how to be responsible and professional. For me, being an IT professional is not only about coding, but also about having good values and treating others with respect.
+        <div class="preview-grid">
+          <!-- Card 1: About Me -->
+          <article class="preview-card">
+            <span class="preview-icon">👨‍💻</span>
+            <h3 class="preview-title">About Me</h3>
+            <p class="preview-desc">
+              Discover my background as a Bachelor of Science in Information Technology student, my learning philosophy, and personal commitment to values and respect.
             </p>
-
-            <div class="pillars-mini-grid">
-              <div class="mini-pill">
-                <span>🎯</span> Competence First
-              </div>
-              <div class="mini-pill">
-                <span>⚖️</span> Ethical Standards
-              </div>
-              <div class="mini-pill">
-                <span>🤝</span> Mutual Respect
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- The 5 R's Section -->
-      <section class="section container" id="five-rs">
-        <div class="section-header">
-          <span class="section-tag">Core Principles</span>
-          <h2 class="section-heading">The 5 R's of IT Professionalism</h2>
-          <p class="section-desc">The foundational pillars that guide my conduct, mindset, and decisions in technology.</p>
-        </div>
-
-        <div class="five-rs-grid">
-          <!-- 1. Responsibility -->
-          <article class="r-card">
-            <div class="r-card-header">
-              <span class="r-number">01 / Pillar</span>
-              <span class="r-icon">🛡️</span>
-            </div>
-            <h3 class="r-title">1. Responsibility</h3>
-            <p class="r-desc">
-              Take ownership of your work and accept accountability for your actions and decisions. Delivering reliable work means standing firmly behind every line of code and every project outcome.
-            </p>
+            <a href="about.html" class="preview-link" id="link-preview-about">Visit About Me &rarr;</a>
           </article>
 
-          <!-- 2. Respect -->
-          <article class="r-card">
-            <div class="r-card-header">
-              <span class="r-number">02 / Pillar</span>
-              <span class="r-icon">🤝</span>
-            </div>
-            <h3 class="r-title">2. Respect</h3>
-            <p class="r-desc">
-              Treat people and their information properly. Communicate politely and professionally. Uphold user privacy, value teammates' perspectives, and foster inclusive collaboration.
+          <!-- Card 2: The 5 R's -->
+          <article class="preview-card">
+            <span class="preview-icon">🛡️</span>
+            <h3 class="preview-title">The 5 R's of IT</h3>
+            <p class="preview-desc">
+              Explore the core pillars of IT professionalism: Responsibility, Respect, Reliability, Responsibility for Ethics, and Readiness to Learn.
             </p>
+            <a href="fivers.html" class="preview-link" id="link-preview-fivers">Explore The 5 R's &rarr;</a>
           </article>
 
-          <!-- 3. Reliability -->
-          <article class="r-card">
-            <div class="r-card-header">
-              <span class="r-number">03 / Pillar</span>
-              <span class="r-icon">⏱️</span>
-            </div>
-            <h3 class="r-title">3. Reliability</h3>
-            <p class="r-desc">
-              Do what you promise, meet deadlines, and be someone others can count on. Consistency and dependability form the bedrock of genuine professional trust.
+          <!-- Card 3: Activity -->
+          <article class="preview-card">
+            <span class="preview-icon">📋</span>
+            <h3 class="preview-title">Activity</h3>
+            <p class="preview-desc">
+              Review my coursework milestones, case studies on tech ethics, responsive web implementation, and collaborative team practices.
             </p>
+            <a href="activity.html" class="preview-link" id="link-preview-activity">View Activities &rarr;</a>
           </article>
-
-          <!-- 4. Responsibility for Ethics -->
-          <article class="r-card highlight">
-            <div class="r-card-header">
-              <span class="r-number">04 / Pillar</span>
-              <span class="r-icon">⚖️</span>
-            </div>
-            <h3 class="r-title">4. Responsibility for Ethics</h3>
-            <p class="r-desc">
-              Make decisions based on ethical principles, not just what is technically possible. Guard user security, oppose harmful practices, and apply technology for genuine human benefit.
-            </p>
-          </article>
-
-          <!-- 5. Readiness to Learn -->
-          <article class="r-card">
-            <div class="r-card-header">
-              <span class="r-number">05 / Pillar</span>
-              <span class="r-icon">📚</span>
-            </div>
-            <h3 class="r-title">5. Readiness to Learn</h3>
-            <p class="r-desc">
-              Continuously develop your knowledge and skills as technology evolves. Embrace change, seek constructive feedback, and remain an eager, humble lifelong learner.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- Activity Section -->
-      <section class="section container" id="activity">
-        <div class="section-header">
-          <span class="section-tag">Portfolio Activities</span>
-          <h2 class="section-heading">Academic &amp; Professional Activities</h2>
-          <p class="section-desc">Hands-on coursework, case discussions, and development practices shaping my career.</p>
-        </div>
-
-        <div class="activities-grid">
-          <div class="activity-card">
-            <span class="activity-badge">Activity 1 • Ethics &amp; Case Study</span>
-            <h3 class="activity-title">IT Code of Ethics Analysis</h3>
-            <p class="activity-desc">
-              Analyzed real-world ethical dilemmas in software deployment, data privacy violations, and intellectual property responsibilities in the IT industry.
-            </p>
-          </div>
-
-          <div class="activity-card">
-            <span class="activity-badge">Activity 2 • Hands-on Development</span>
-            <h3 class="activity-title">Secure &amp; Responsive Web Building</h3>
-            <p class="activity-desc">
-              Practicing clean code practices, semantic accessibility, responsive design systems, and secure handling of user input across web platforms.
-            </p>
-          </div>
-
-          <div class="activity-card">
-            <span class="activity-badge">Activity 3 • Team Collaboration</span>
-            <h3 class="activity-title">Collaborative Problem Solving</h3>
-            <p class="activity-desc">
-              Engaging in team project simulations, peer reviews, constructive feedback sessions, and clear professional communication workflows.
-            </p>
-          </div>
         </div>
       </section>
 
@@ -897,26 +131,15 @@
   </div>
 
   <script>
-    // Active navigation link tracking on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    // Mobile navigation toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
 
-    window.addEventListener('scroll', () => {
-      let currentSection = '';
-      sections.forEach(sec => {
-        const sectionTop = sec.offsetTop - 140;
-        if (window.scrollY >= sectionTop) {
-          currentSection = sec.getAttribute('id');
-        }
+    if (menuBtn && navMenu) {
+      menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
       });
-
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-          link.classList.add('active');
-        }
-      });
-    }, { passive: true });
+    }
   </script>
 </body>
 </html>

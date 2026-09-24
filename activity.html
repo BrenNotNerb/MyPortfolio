@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activity | Brenan Jay Reconalla - IT Professionalism</title>
+  <meta name="description" content="Academic and practical IT activities, case studies, and development projects by Brenan Jay Reconalla." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-sphere sphere-1"></div>
+    <div class="glow-sphere sphere-2"></div>
+    <div class="glow-sphere sphere-3"></div>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="container nav-container">
+        <a href="index.html" class="brand" id="nav-brand">
+          <div class="brand-avatar">BR</div>
+          <div class="brand-info">
+            <span class="brand-name">Brenan Jay Reconalla</span>
+            <span class="brand-tag">BSIT Student</span>
+          </div>
+        </a>
+
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu">☰</button>
+
+        <nav>
+          <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="fivers.html">The 5 R's</a></li>
+            <li><a href="activity.html" class="active">Activity</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Header -->
+      <section class="page-header container">
+        <div class="badge">
+          <span class="badge-indicator"></span>
+          Academic &amp; Practical Application
+        </div>
+        <h1 class="section-heading">My Coursework &amp; <span class="gradient-text">Activities</span></h1>
+        <p class="section-desc">Practical exercises, ethical dilemmas, and technical projects undertaken during my BSIT journey.</p>
+      </section>
+
+      <!-- Activities Grid -->
+      <section class="container" style="padding-bottom: 5rem;">
+        <div class="activities-grid">
+          <!-- Activity 1 -->
+          <article class="activity-card">
+            <span class="activity-badge">Activity 01 &bull; Ethics &amp; Analysis</span>
+            <h2 class="activity-title">IT Code of Ethics Case Study</h2>
+            <p class="activity-desc">
+              Examined scenarios regarding intellectual property rights, data breaches, and developer liability. Evaluated ethical responses according to industry standards like ACM and IEEE codes of ethics.
+            </p>
+            <div class="activity-takeaway">
+              <strong>Key Learning:</strong> Ethics must precede execution; just because a feature is technically viable does not mean it is right to deploy.
+            </div>
+          </article>
+
+          <!-- Activity 2 -->
+          <article class="activity-card">
+            <span class="activity-badge">Activity 02 &bull; Web Engineering</span>
+            <h2 class="activity-title">Responsive &amp; Accessible Web Design</h2>
+            <p class="activity-desc">
+              Constructed semantic web pages adhering to modern web standards, WCAG contrast ratios, and fluid responsive layouts across desktop and mobile devices.
+            </p>
+            <div class="activity-takeaway">
+              <strong>Key Learning:</strong> Designing accessible interfaces reflects the "Respect" pillar by ensuring technology is usable by all individuals.
+            </div>
+          </article>
+
+          <!-- Activity 3 -->
+          <article class="activity-card">
+            <span class="activity-badge">Activity 03 &bull; Collaboration</span>
+            <h2 class="activity-title">Team Dynamics &amp; Code Review</h2>
+            <p class="activity-desc">
+              Participated in group software exercises involving task delegation, mutual code reviews, and structured constructive critique under project deadlines.
+            </p>
+            <div class="activity-takeaway">
+              <strong>Key Learning:</strong> Practicing reliability and clear communication builds resilient team rapport and superior product quality.
+            </div>
+          </article>
+
+          <!-- Activity 4 -->
+          <article class="activity-card">
+            <span class="activity-badge">Activity 04 &bull; Continuous Growth</span>
+            <h2 class="activity-title">Emerging Tech &amp; Cybersecurity Awareness</h2>
+            <p class="activity-desc">
+              Researched current trends in Artificial Intelligence safety, secure authentication practices, and defensive software design to prevent common vulnerability exploits.
+            </p>
+            <div class="activity-takeaway">
+              <strong>Key Learning:</strong> Embodying "Readiness to Learn" keeps our skills relevant and guards against emerging security pitfalls.
+            </div>
+          </article>
+        </div>
+
+        <!-- Return Home or Other Page -->
+        <div style="margin-top: 3.5rem; text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="index.html" class="btn btn-outline">
+            &larr; Back to Home
+          </a>
+          <a href="about.html" class="btn btn-primary">
+            Visit About Me &rarr;
+          </a>
+        </div>
+      </section>
+
+      <!-- Quote Banner Section -->
+      <section class="quote-section container">
+        <div class="quote-box">
+          <div class="quote-icon">&ldquo;</div>
+          <blockquote class="quote-text">
+            A good IT professional does not only know how technology works; they know how to use technology responsibly, ethically, and professionally.
+          </blockquote>
+          <p class="quote-author">&mdash; IT Professionalism Philosophy</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-content">
+        <p class="footer-copy">&copy; 2026 Brenan Jay Reconalla | BSIT Professionalism Portfolio</p>
+        <p class="footer-sub">Building competence, integrity, and ethical responsibility in Information Technology</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuBtn && navMenu) {
+      menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+    }
+  </script>
+</body>
+</html>

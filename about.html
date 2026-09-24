@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Brenan Jay Reconalla - IT Professionalism</title>
+  <meta name="description" content="Learn more about Brenan Jay Reconalla, a Bachelor of Science in Information Technology student committed to competence, integrity, and respect." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Shared Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient Glow Background -->
+  <div class="ambient-glow" aria-hidden="true">
+    <div class="glow-sphere sphere-1"></div>
+    <div class="glow-sphere sphere-2"></div>
+    <div class="glow-sphere sphere-3"></div>
+  </div>
+
+  <div class="page-wrapper">
+    <!-- Header & Navigation -->
+    <header>
+      <div class="container nav-container">
+        <a href="index.html" class="brand" id="nav-brand">
+          <div class="brand-avatar">BR</div>
+          <div class="brand-info">
+            <span class="brand-name">Brenan Jay Reconalla</span>
+            <span class="brand-tag">BSIT Student</span>
+          </div>
+        </a>
+
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu">☰</button>
+
+        <nav>
+          <ul class="nav-links" id="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Me</a></li>
+            <li><a href="fivers.html">The 5 R's</a></li>
+            <li><a href="activity.html">Activity</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Page Header -->
+      <section class="page-header container">
+        <div class="badge">
+          <span class="badge-indicator"></span>
+          Personal Profile &amp; Background
+        </div>
+        <h1 class="section-heading">About <span class="gradient-text">Me</span></h1>
+        <p class="section-desc">My aspirations, educational journey, and perspective on being an IT professional.</p>
+      </section>
+
+      <!-- Main Profile Section -->
+      <section class="container" style="padding-bottom: 5rem;">
+        <div class="about-card">
+          <div class="profile-visual">
+            <div class="avatar-wrapper">
+              <div class="avatar-box">
+                <img src="profile.jpg" alt="Brenan Jay Reconalla" class="avatar-img" />
+              </div>
+            </div>
+            <div class="status-pill">
+              <span>●</span> In Learning &amp; Growth Mode
+            </div>
+          </div>
+
+          <div class="about-content">
+            <h2>Brenan Jay Reconalla</h2>
+            <span class="degree-title">Bachelor of Science in Information Technology</span>
+            <p class="about-bio">
+              I am an IT student who is still learning and improving my skills. I want to become better at technology while also learning how to be responsible and professional. For me, being an IT professional is not only about coding, but also about having good values and treating others with respect.
+            </p>
+
+            <div class="pillars-mini-grid">
+              <div class="mini-pill">
+                <div class="mini-pill-header">
+                  <span>🎯</span> Competence First
+                </div>
+                <p>Committed to mastering software fundamentals, system logic, and modern tools.</p>
+              </div>
+
+              <div class="mini-pill">
+                <div class="mini-pill-header">
+                  <span>⚖️</span> Ethical Responsibility
+                </div>
+                <p>Prioritizing data confidentiality, user privacy, and honest practices.</p>
+              </div>
+
+              <div class="mini-pill">
+                <div class="mini-pill-header">
+                  <span>🤝</span> Mutual Respect
+                </div>
+                <p>Treating collaborators and users with empathy, patience, and clear communication.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vision and Philosophy Cards -->
+        <div class="preview-grid" style="margin-top: 2rem;">
+          <div class="preview-card">
+            <span class="preview-icon">💡</span>
+            <h3 class="preview-title">My Philosophy</h3>
+            <p class="preview-desc">
+              Technology is a tool that empowers people. True professionalism lies in balancing technical ingenuity with a strong moral compass that protects and serves society.
+            </p>
+          </div>
+
+          <div class="preview-card">
+            <span class="preview-icon">🚀</span>
+            <h3 class="preview-title">My Vision</h3>
+            <p class="preview-desc">
+              To grow into a reliable, competent IT professional who contributes meaningful, secure, and user-centered digital solutions to the modern tech ecosystem.
+            </p>
+          </div>
+
+          <div class="preview-card">
+            <span class="preview-icon">📖</span>
+            <h3 class="preview-title">Read Next: The 5 R's</h3>
+            <p class="preview-desc">
+              Discover the 5 guiding principles of IT Professionalism that shape my day-to-day decisions and technical habits.
+            </p>
+            <a href="fivers.html" class="preview-link">View The 5 R's &rarr;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quote Banner Section -->
+      <section class="quote-section container">
+        <div class="quote-box">
+          <div class="quote-icon">&ldquo;</div>
+          <blockquote class="quote-text">
+            A good IT professional does not only know how technology works; they know how to use technology responsibly, ethically, and professionally.
+          </blockquote>
+          <p class="quote-author">&mdash; IT Professionalism Philosophy</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container footer-content">
+        <p class="footer-copy">&copy; 2026 Brenan Jay Reconalla | BSIT Professionalism Portfolio</p>
+        <p class="footer-sub">Building competence, integrity, and ethical responsibility in Information Technology</p>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (menuBtn && navMenu) {
+      menuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+      });
+    }
+  </script>
+</body>
+</html>
