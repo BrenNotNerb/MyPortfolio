@@ -1,19 +1,30 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Certificates | Brenan Jay Reconalla - IT Professionalism</title>
-  <meta name="description" content="Certificates and academic achievements of Brenan Jay Reconalla, BSIT student." />
+
+  <meta
+    name="description"
+    content="Certificates and academic achievements of Brenan Jay Reconalla, BSIT student."
+  />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
   <link rel="stylesheet" href="style.css" />
 
   <style>
     /* ── Certificate Grid ─────────────────────────────────────── */
+
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
@@ -38,54 +49,55 @@
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
     }
 
-    /* Certificate visual area – mimics a certificate document */
+    /* ── Certificate Preview ─────────────────────────────────── */
+
     .cert-preview {
       position: relative;
       height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
-      gap: 0.75rem;
       overflow: hidden;
     }
 
-    .cert-preview-1 { background: linear-gradient(135deg, #1e1a40, #2d1f6b); }
-    .cert-preview-2 { background: linear-gradient(135deg, #0a2240, #0a3f6e); }
-    .cert-preview-3 { background: linear-gradient(135deg, #1a0a30, #3b1a6e); }
-    .cert-preview-4 { background: linear-gradient(135deg, #0f2a1e, #0d4a35); }
-
-    /* Decorative certificate corner borders */
-    .cert-preview::before,
-    .cert-preview::after {
-      content: '';
-      position: absolute;
-      width: 28px;
-      height: 28px;
-      border-color: rgba(255,255,255,0.25);
-      border-style: solid;
-    }
-    .cert-preview::before { top: 14px; left: 14px; border-width: 2px 0 0 2px; }
-    .cert-preview::after  { bottom: 14px; right: 14px; border-width: 0 2px 2px 0; }
-
-    .cert-badge-icon {
-      font-size: 2.8rem;
-      filter: drop-shadow(0 4px 16px rgba(255,255,255,0.2));
+    .cert-preview-1 {
+      background: linear-gradient(135deg, #1e1a40, #2d1f6b);
     }
 
-    .cert-preview-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: rgba(255,255,255,0.55);
-      font-weight: 600;
+    .cert-preview-2 {
+      background: linear-gradient(135deg, #0a2240, #0a3f6e);
     }
+
+    .cert-preview-3 {
+      background: linear-gradient(135deg, #1a0a30, #3b1a6e);
+    }
+
+    .cert-preview-4 {
+      background: linear-gradient(135deg, #0f2a1e, #0d4a35);
+    }
+
+    /* Google Drive PDF */
+
+    .certificate-frame {
+      width: 100%;
+      height: 200px;
+      border: none;
+      display: block;
+      background: #fff;
+    }
+
+    /* Certificate ribbon */
 
     .cert-ribbon {
       position: absolute;
+      z-index: 5;
       top: 14px;
       right: -22px;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      background: linear-gradient(
+        135deg,
+        var(--primary),
+        var(--secondary)
+      );
       color: #fff;
       font-size: 0.65rem;
       font-weight: 700;
@@ -93,8 +105,10 @@
       letter-spacing: 1px;
       padding: 0.25rem 2.5rem;
       transform: rotate(35deg);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
+
+    /* ── Certificate Body ────────────────────────────────────── */
 
     .cert-body {
       padding: 1.75rem 2rem 2rem;
@@ -113,7 +127,7 @@
     }
 
     .cert-title {
-      font-family: 'Space Grotesk', sans-serif;
+      font-family: "Space Grotesk", sans-serif;
       font-size: 1.2rem;
       font-weight: 700;
       color: #fff;
@@ -131,6 +145,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
       margin-top: 1rem;
       padding-top: 1rem;
       border-top: 1px solid var(--border);
@@ -142,14 +157,24 @@
       font-weight: 500;
     }
 
+    /* ── Status / View Button ────────────────────────────────── */
+
     .cert-status {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 0.4rem;
       font-size: 0.78rem;
       font-weight: 700;
-      padding: 0.25rem 0.75rem;
+      padding: 0.45rem 0.85rem;
       border-radius: 999px;
+      text-decoration: none;
+      transition: 0.3s ease;
+      white-space: nowrap;
+    }
+
+    .cert-status:hover {
+      transform: translateY(-2px);
     }
 
     .cert-status.earned {
@@ -158,13 +183,18 @@
       color: #34d399;
     }
 
+    .cert-status.earned:hover {
+      background: rgba(16, 185, 129, 0.2);
+    }
+
     .cert-status.in-progress {
       background: rgba(245, 158, 11, 0.1);
       border: 1px solid rgba(245, 158, 11, 0.3);
       color: #fbbf24;
     }
 
-    /* ── Empty / Upload Placeholder Card ─────────────────────── */
+    /* ── Placeholder Card ────────────────────────────────────── */
+
     .cert-card-placeholder {
       border: 2px dashed rgba(99, 102, 241, 0.25);
       border-radius: var(--card-radius);
@@ -196,6 +226,7 @@
     }
 
     /* ── Info Banner ──────────────────────────────────────────── */
+
     .cert-info-banner {
       background: rgba(99, 102, 241, 0.07);
       border: 1px solid var(--border-accent);
@@ -213,8 +244,26 @@
       font-size: 1.4rem;
       flex-shrink: 0;
     }
+
+    /* ── Mobile ───────────────────────────────────────────────── */
+
+    @media (max-width: 600px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cert-footer {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cert-status {
+        width: 100%;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <div class="ambient-glow" aria-hidden="true">
@@ -224,166 +273,477 @@
   </div>
 
   <div class="page-wrapper">
+
     <!-- Header & Navigation -->
+
     <header>
       <div class="container nav-container">
+
         <a href="index.html" class="brand" id="nav-brand">
-          <div class="brand-avatar">BR</div>
-          <div class="brand-info">
-            <span class="brand-name">Brenan Jay Reconalla</span>
-            <span class="brand-tag">BSIT Student</span>
+
+          <div class="brand-avatar">
+            BR
           </div>
+
+          <div class="brand-info">
+            <span class="brand-name">
+              Brenan Jay Reconalla
+            </span>
+
+            <span class="brand-tag">
+              BSIT Student
+            </span>
+          </div>
+
         </a>
 
-        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation">☰</button>
+        <button
+          class="menu-toggle"
+          id="menu-btn"
+          aria-label="Toggle navigation"
+        >
+          ☰
+        </button>
 
         <nav>
           <ul class="nav-links" id="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="fivers.html">The 5 R's</a></li>
-            <li><a href="activity.html">Activity</a></li>
-            <li><a href="certificate.html" class="active">Certificates</a></li>
+
+            <li>
+              <a href="index.html">
+                Home
+              </a>
+            </li>
+
+            <li>
+              <a href="about.html">
+                About Me
+              </a>
+            </li>
+
+            <li>
+              <a href="fivers.html">
+                The 5 R's
+              </a>
+            </li>
+
+            <li>
+              <a href="activity.html">
+                Activity
+              </a>
+            </li>
+
+            <li>
+              <a href="certificate.html" class="active">
+                Certificates
+              </a>
+            </li>
+
           </ul>
         </nav>
+
       </div>
     </header>
 
+
     <main>
+
       <!-- Page Header -->
+
       <section class="page-header container">
+
         <div class="badge">
           <span class="badge-indicator"></span>
           Academic Achievements
         </div>
-        <h1 class="section-heading">My <span class="gradient-text">Certificates</span></h1>
-        <p class="section-desc">Certifications, recognitions, and completed courses that mark milestones in my BSIT journey.</p>
+
+        <h1 class="section-heading">
+          My <span class="gradient-text">Certificates</span>
+        </h1>
+
+        <p class="section-desc">
+          Certifications, recognitions, and completed courses that mark
+          milestones in my BSIT journey.
+        </p>
+
       </section>
 
-      <section class="container" style="padding-bottom: 5rem;">
+
+      <section
+        class="container"
+        style="padding-bottom: 5rem;"
+      >
 
         <!-- Info Banner -->
+
         <div class="cert-info-banner">
-          <span class="info-icon">💡</span>
-          <span>This page showcases earned and in-progress certifications. More certificates will be added as I continue learning and completing courses throughout my BSIT program.</span>
+
+          <span class="info-icon">
+            💡
+          </span>
+
+          <span>
+            This page showcases my certificates and academic achievements.
+            Click "View Certificate" to open the original certificate.
+          </span>
+
         </div>
+
 
         <!-- Certificates Grid -->
+
         <div class="cert-grid">
 
+
           <!-- Certificate 1 -->
+
           <div class="cert-card">
+
             <div class="cert-preview cert-preview-1">
-              <span class="cert-ribbon">Completed</span>
-              <span class="cert-badge-icon">🎓</span>
-              <span class="cert-preview-label">Certificate of Completion</span>
+
+              <span class="cert-ribbon">
+                Completed
+              </span>
+
+              <iframe
+                class="certificate-frame"
+                src="https://drive.google.com/file/d/1Du4kTVUiLs4zCQvCEK9Jxfa7Zp4wx9CX/preview"
+                title="Certificate 1"
+                loading="lazy">
+              </iframe>
+
             </div>
+
+
             <div class="cert-body">
-              <span class="cert-issuer">School / University</span>
-              <h2 class="cert-title">IT Professionalism &amp; Ethics</h2>
-              <p class="cert-desc">Completed a course covering IT ethics, professional responsibilities, privacy, intellectual property, and workplace conduct for IT practitioners.</p>
+
+              <span class="cert-issuer">
+                School / University
+              </span>
+
+              <h2 class="cert-title">
+                IT Professionalism &amp; Ethics
+              </h2>
+
+              <p class="cert-desc">
+                Certificate related to IT professionalism, ethics,
+                professional responsibilities, privacy, and proper
+                workplace conduct.
+              </p>
+
               <div class="cert-footer">
-                <span class="cert-date">📅 2026</span>
-                <span class="cert-status earned">✔ Earned</span>
+
+                <span class="cert-date">
+                  📅 2026
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/1Du4kTVUiLs4zCQvCEK9Jxfa7Zp4wx9CX/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-status earned">
+                  View Certificate
+                </a>
+
               </div>
+
             </div>
+
           </div>
+
+
 
           <!-- Certificate 2 -->
+
           <div class="cert-card">
+
             <div class="cert-preview cert-preview-2">
-              <span class="cert-ribbon">Completed</span>
-              <span class="cert-badge-icon">🌐</span>
-              <span class="cert-preview-label">Certificate of Completion</span>
+
+              <span class="cert-ribbon">
+                Completed
+              </span>
+
+              <iframe
+                class="certificate-frame"
+                src="https://drive.google.com/file/d/1n62i5R5wIvCZeFA6AE91qZiT5TPW2TGH/preview"
+                title="Certificate 2"
+                loading="lazy">
+              </iframe>
+
             </div>
+
+
             <div class="cert-body">
-              <span class="cert-issuer">School / University</span>
-              <h2 class="cert-title">Web Development Fundamentals</h2>
-              <p class="cert-desc">Covered HTML5, CSS3, responsive web design, and JavaScript fundamentals to build accessible and visually structured web pages.</p>
+
+              <span class="cert-issuer">
+                School / University
+              </span>
+
+              <h2 class="cert-title">
+                Web Development Fundamentals
+              </h2>
+
+              <p class="cert-desc">
+                Certificate related to web development and the use of
+                HTML, CSS, JavaScript, and responsive web design.
+              </p>
+
               <div class="cert-footer">
-                <span class="cert-date">📅 2026</span>
-                <span class="cert-status earned">✔ Earned</span>
+
+                <span class="cert-date">
+                  📅 2026
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/1n62i5R5wIvCZeFA6AE91qZiT5TPW2TGH/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-status earned">
+                  View Certificate
+                </a>
+
               </div>
+
             </div>
+
           </div>
+
+
 
           <!-- Certificate 3 -->
+
           <div class="cert-card">
+
             <div class="cert-preview cert-preview-3">
-              <span class="cert-badge-icon">🔒</span>
-              <span class="cert-preview-label">In Progress</span>
+
+              <span class="cert-ribbon">
+                Completed
+              </span>
+
+              <iframe
+                class="certificate-frame"
+                src="https://drive.google.com/file/d/1M3Bzs9UVO5roTbEdaiKmHS15lgGOHnie/preview"
+                title="Certificate 3"
+                loading="lazy">
+              </iframe>
+
             </div>
+
+
             <div class="cert-body">
-              <span class="cert-issuer">Online / Self-Study</span>
-              <h2 class="cert-title">Cybersecurity Awareness Basics</h2>
-              <p class="cert-desc">Currently studying secure coding practices, password management, phishing awareness, and data protection fundamentals for IT students.</p>
+
+              <span class="cert-issuer">
+                Online / Self-Study
+              </span>
+
+              <h2 class="cert-title">
+                Cybersecurity Awareness Basics
+              </h2>
+
+              <p class="cert-desc">
+                Certificate related to cybersecurity awareness,
+                online safety, data protection, and basic security
+                practices.
+              </p>
+
               <div class="cert-footer">
-                <span class="cert-date">📅 2026 – Present</span>
-                <span class="cert-status in-progress">⏳ In Progress</span>
+
+                <span class="cert-date">
+                  📅 2026
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/1M3Bzs9UVO5roTbEdaiKmHS15lgGOHnie/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-status earned">
+                  View Certificate
+                </a>
+
               </div>
+
             </div>
+
           </div>
+
+
 
           <!-- Certificate 4 -->
+
           <div class="cert-card">
+
             <div class="cert-preview cert-preview-4">
-              <span class="cert-ribbon">Completed</span>
-              <span class="cert-badge-icon">🤝</span>
-              <span class="cert-preview-label">Certificate of Participation</span>
+
+              <span class="cert-ribbon">
+                Completed
+              </span>
+
+              <iframe
+                class="certificate-frame"
+                src="https://drive.google.com/file/d/1NZ8niZ4Mx4nS2upQjCFhxGEeOIQhkbFV/preview"
+                title="Certificate 4"
+                loading="lazy">
+              </iframe>
+
             </div>
+
+
             <div class="cert-body">
-              <span class="cert-issuer">School / University</span>
-              <h2 class="cert-title">Team Collaboration &amp; Project Management</h2>
-              <p class="cert-desc">Participated in structured team programming exercises, learning agile communication, peer review practices, and deadline management.</p>
+
+              <span class="cert-issuer">
+                School / University
+              </span>
+
+              <h2 class="cert-title">
+                Team Collaboration &amp; Project Management
+              </h2>
+
+              <p class="cert-desc">
+                Certificate related to teamwork, collaboration,
+                communication, project activities, and managing
+                academic tasks.
+              </p>
+
               <div class="cert-footer">
-                <span class="cert-date">📅 2026</span>
-                <span class="cert-status earned">✔ Earned</span>
+
+                <span class="cert-date">
+                  📅 2026
+                </span>
+
+                <a
+                  href="https://drive.google.com/file/d/1NZ8niZ4Mx4nS2upQjCFhxGEeOIQhkbFV/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-status earned">
+                  View Certificate
+                </a>
+
               </div>
+
             </div>
+
           </div>
 
-          <!-- Placeholder for future certificates -->
+
+
+          <!-- Placeholder for Future Certificates -->
+
           <div class="cert-card-placeholder">
-            <span class="placeholder-icon">➕</span>
-            <p class="placeholder-text">More certificates will be added here as I continue to complete courses and achieve new milestones.</p>
+
+            <span class="placeholder-icon">
+              ➕
+            </span>
+
+            <p class="placeholder-text">
+              More certificates will be added here as I continue
+              to complete courses and achieve new milestones.
+            </p>
+
           </div>
+
 
         </div>
 
-        <!-- Nav Buttons -->
-        <div style="text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-          <a href="activity.html" class="btn btn-outline">&larr; Back to Activity</a>
-          <a href="index.html" class="btn btn-primary">Back to Home &rarr;</a>
+
+        <!-- Navigation Buttons -->
+
+        <div
+          style="
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+          "
+        >
+
+          <a
+            href="activity.html"
+            class="btn btn-outline"
+          >
+            &larr; Back to Activity
+          </a>
+
+          <a
+            href="index.html"
+            class="btn btn-primary"
+          >
+            Back to Home &rarr;
+          </a>
+
         </div>
 
       </section>
+
 
       <!-- Quote Banner -->
+
       <section class="quote-section container">
+
         <div class="quote-box">
-          <div class="quote-icon">&ldquo;</div>
+
+          <div class="quote-icon">
+            &ldquo;
+          </div>
+
           <blockquote class="quote-text">
-            A good IT professional does not only know how technology works; they know how to use technology responsibly, ethically, and professionally.
+            A good IT professional does not only know how technology
+            works; they know how to use technology responsibly,
+            ethically, and professionally.
           </blockquote>
-          <p class="quote-author">&mdash; IT Professionalism Philosophy</p>
+
+          <p class="quote-author">
+            &mdash; IT Professionalism Philosophy
+          </p>
+
         </div>
+
       </section>
+
     </main>
 
+
+    <!-- Footer -->
+
     <footer>
+
       <div class="container footer-content">
-        <p class="footer-copy">&copy; 2026 Brenan Jay Reconalla | BSIT Professionalism Portfolio</p>
-        <p class="footer-sub">Building competence, integrity, and ethical responsibility in Information Technology</p>
+
+        <p class="footer-copy">
+          &copy; 2026 Brenan Jay Reconalla |
+          BSIT Professionalism Portfolio
+        </p>
+
+        <p class="footer-sub">
+          Building competence, integrity, and ethical responsibility
+          in Information Technology
+        </p>
+
       </div>
+
     </footer>
+
   </div>
 
+
+  <!-- Navigation JavaScript -->
+
   <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const navMenu = document.getElementById('nav-menu');
+
+    const menuBtn = document.getElementById("menu-btn");
+    const navMenu = document.getElementById("nav-menu");
+
     if (menuBtn && navMenu) {
-      menuBtn.addEventListener('click', () => navMenu.classList.toggle('show'));
+
+      menuBtn.addEventListener("click", () => {
+
+        navMenu.classList.toggle("show");
+
+      });
+
     }
+
   </script>
+
 </body>
 </html>
+```
