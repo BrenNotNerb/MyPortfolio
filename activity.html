@@ -4,19 +4,324 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Activity | Brenan Jay Reconalla - IT Professionalism</title>
-  <meta name="description" content="Academic and practical IT activities, case studies, and development projects by Brenan Jay Reconalla." />
+  <meta name="description" content="Academic activities and reflection paper by Brenan Jay Reconalla, BSIT student." />
 
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
 
-  <!-- Shared Stylesheet -->
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ── Accordion / Expandable Activity ─────────────────────── */
+    .activity-accordion {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .accordion-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
+
+    .accordion-item.open {
+      border-color: var(--border-accent);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .accordion-trigger {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 2rem 2.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      text-align: left;
+      transition: var(--transition);
+    }
+
+    .accordion-trigger:hover {
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .accordion-trigger-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    .accordion-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--primary);
+    }
+
+    .accordion-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .accordion-meta {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    .accordion-chevron {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #a5b4fc;
+      transition: transform 0.35s ease, background 0.3s;
+    }
+
+    .accordion-item.open .accordion-chevron {
+      transform: rotate(180deg);
+      background: rgba(99, 102, 241, 0.2);
+    }
+
+    /* ── Document / Word-style Body ───────────────────────────── */
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .accordion-item.open .accordion-content {
+      max-height: 9999px;
+    }
+
+    .doc-wrapper {
+      padding: 1.25rem 2.25rem 2.25rem;
+      background: transparent;
+    }
+
+    .word-doc {
+      background: #ffffff;
+      color: #1a1a2e;
+      border-radius: 10px;
+      box-shadow:
+        0 4px 6px rgba(0,0,0,0.25),
+        0 20px 60px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+
+    /* Word-style toolbar */
+    .word-toolbar {
+      background: #f3f3f3;
+      border-bottom: 1px solid #d1d1d1;
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .word-toolbar-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .word-toolbar-dots span {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .dot-red   { background: #ff5f57; }
+    .dot-yellow{ background: #febc2e; }
+    .dot-green { background: #28c840; }
+
+    .word-toolbar-title {
+      font-size: 0.8rem;
+      color: #555;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+    }
+
+    /* Word-style page */
+    .word-page {
+      padding: 3rem 4rem;
+      font-family: 'Merriweather', Georgia, serif;
+      line-height: 1.9;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .word-doc-title {
+      font-size: 1.65rem;
+      font-weight: 700;
+      text-align: center;
+      color: #111;
+      margin-bottom: 0.35rem;
+      letter-spacing: -0.01em;
+    }
+
+    .word-doc-subtitle {
+      font-size: 0.95rem;
+      text-align: center;
+      color: #555;
+      margin-bottom: 0.25rem;
+      font-style: italic;
+    }
+
+    .word-doc-divider {
+      border: none;
+      border-top: 2px solid #222;
+      margin: 1.25rem 0 2rem;
+    }
+
+    .word-paragraph {
+      font-size: 1rem;
+      color: #1a1a2e;
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-indent: 2.5rem;
+    }
+
+    .word-section-heading {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #111;
+      margin: 2rem 0 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.01em;
+      border-left: 4px solid #6366f1;
+      padding-left: 0.85rem;
+    }
+
+    .word-commitment-list {
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .word-commitment-item {
+      background: #f8f8ff;
+      border: 1px solid #e2e2ef;
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+    }
+
+    .word-commitment-item strong {
+      display: block;
+      color: #4338ca;
+      font-family: 'Space Grotesk', sans-serif;
+      margin-bottom: 0.3rem;
+      font-size: 0.97rem;
+    }
+
+    .word-commitment-item p {
+      font-size: 0.95rem;
+      color: #333;
+      margin: 0;
+      text-indent: 0;
+    }
+
+    .word-signature {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.3rem;
+      color: #444;
+      font-size: 0.9rem;
+      border-top: 1px solid #ddd;
+      padding-top: 1.25rem;
+    }
+
+    .word-signature strong {
+      font-family: 'Space Grotesk', sans-serif;
+      color: #111;
+    }
+
+    /* ── Personal Commitment Cards ────────────────────────────── */
+    .commitment-section {
+      margin-bottom: 1rem;
+    }
+
+    .commitment-header {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .commitment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .commitment-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 2.25rem;
+      transition: var(--transition);
+      backdrop-filter: blur(12px);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .commitment-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-accent);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .commitment-icon {
+      font-size: 2.5rem;
+      filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.4));
+    }
+
+    .commitment-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .commitment-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 700px) {
+      .word-page { padding: 2rem 1.5rem; }
+      .word-doc-title { font-size: 1.25rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Ambient Glow Background -->
   <div class="ambient-glow" aria-hidden="true">
     <div class="glow-sphere sphere-1"></div>
     <div class="glow-sphere sphere-2"></div>
@@ -35,14 +340,15 @@
           </div>
         </a>
 
-        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu">☰</button>
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation">☰</button>
 
         <nav>
           <ul class="nav-links" id="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
             <li><a href="fivers.html">The 5 R's</a></li>
-            <li><a href="activity.html" class="active">My Reflections</a></li>
+            <li><a href="activity.html" class="active">Activity</a></li>
+            <li><a href="certificate.html">Certificates</a></li>
           </ul>
         </nav>
       </div>
@@ -55,89 +361,98 @@
           <span class="badge-indicator"></span>
           Academic &amp; Practical Application
         </div>
-        <h1 class="section-heading">My<span class="gradient-text"> Reflections</span></h1>
-        <p class="section-desc">Practical exercises, ethical dilemmas, and technical projects undertaken during my BSIT journey.</p>
+        <h1 class="section-heading">My Certificates &amp; <span class="gradient-text">Activities</span></h1>
+        <p class="section-desc">Click on an activity card below to expand and read the full content.</p>
       </section>
 
-      <!-- Reflection Paper Activity -->
       <section class="container" style="padding-bottom: 5rem;">
 
-        <!-- Single Activity Card - Full Width -->
-        <article class="reflection-card">
-          <div class="reflection-header">
-            <span class="activity-badge">Activity &bull; Reflection Paper</span>
-            <h2 class="reflection-title">Professionalism in Information Technology</h2>
-            <p class="reflection-intro">A personal reflection on what it truly means to be an ethical, responsible, and respectful IT professional.</p>
-          </div>
+        <!-- Accordion Activities -->
+        <div class="activity-accordion">
 
-          <div class="reflection-body">
+          <!-- Activity: Reflection Paper -->
+          <div class="accordion-item" id="accordion-reflection">
+            <button class="accordion-trigger" aria-expanded="false" aria-controls="content-reflection" id="trigger-reflection">
+              <div class="accordion-trigger-left">
+                <span class="accordion-label">Activity &bull; Reflection Paper</span>
+                <span class="accordion-title">Professionalism in Information Technology</span>
+                <span class="accordion-meta">Personal reflection on ethical responsibilities in IT &mdash; Click to read</span>
+              </div>
+              <span class="accordion-chevron" aria-hidden="true">&#8964;</span>
+            </button>
 
-            <div class="reflection-paragraph">
-              <p>For me, professionalism in Information Technology is not only about being good at coding, fixing computers, or working with networks and databases. It is also about being responsible, respectful, and doing the right thing. While studying this lecture, I learned that IT professionals often work with important information such as personal details, school records, business files, and other data. Because of this, having technical skills is not enough. We also need to know how to use technology properly and responsibly. Being a good IT professional means using our skills in a way that helps people and avoids causing problems.</p>
-            </div>
+            <div class="accordion-content" id="content-reflection" role="region" aria-labelledby="trigger-reflection">
+              <div class="doc-wrapper">
+                <!-- Word-style Document -->
+                <div class="word-doc">
+                  <div class="word-toolbar">
+                    <div class="word-toolbar-dots">
+                      <span class="dot-red"></span>
+                      <span class="dot-yellow"></span>
+                      <span class="dot-green"></span>
+                    </div>
+                    <span class="word-toolbar-title">Reflection Paper — Professionalism in IT.docx</span>
+                  </div>
 
-            <div class="reflection-paragraph">
-              <p>Among the characteristics of a good IT practitioner, I think respect is one of my strengths. I try to listen to my classmates, teachers, and family when they need help with something related to technology. I also try to explain things in a simple way instead of making someone feel bad for not understanding. However, I know that I still need to improve when it comes to being reliable. Sometimes I underestimate how long a programming activity or school project will take, which leads me to work close to the deadline. I am trying to improve this by managing my time better and starting my tasks earlier. I know that being on time and doing your part is important, especially when working with a group.</p>
-            </div>
+                  <div class="word-page">
+                    <h2 class="word-doc-title">Reflection Paper</h2>
+                    <p class="word-doc-subtitle">Professionalism in Information Technology</p>
+                    <p class="word-doc-subtitle">Brenan Jay Reconalla &nbsp;|&nbsp; BSIT Student</p>
+                    <hr class="word-doc-divider" />
 
-            <div class="reflection-paragraph">
-              <p>Keeping information private is also an important part of being an IT professional. IT workers sometimes have access to passwords, student information, employee records, and other private files. We should not look at or share information that we are not supposed to access. Having access to someone's information does not mean we have the right to use it. We should keep passwords safe, follow the rules of the organization, and ask for permission before sharing private information. This helps protect people and prevents problems caused by the misuse of information.</p>
-            </div>
+                    <p class="word-paragraph">For me, professionalism in Information Technology is not only about being good at coding, fixing computers, or working with networks and databases. It is also about being responsible, respectful, and doing the right thing. While studying this lecture, I learned that IT professionals often work with important information such as personal details, school records, business files, and other data. Because of this, having technical skills is not enough. We also need to know how to use technology properly and responsibly. Being a good IT professional means using our skills in a way that helps people and avoids causing problems.</p>
 
-            <div class="reflection-paragraph">
-              <p>I can show professionalism in school, especially when working on group programming projects. If we encounter bugs or problems, I should not blame my teammates. Instead, I should focus on my assigned work, communicate with the group, and help find a solution. If I make a mistake in a future job, such as changing something incorrectly in a system or deleting important data, I should be honest about it and inform the person in charge. Hiding the mistake could make the problem worse.</p>
-            </div>
+                    <p class="word-paragraph">Among the characteristics of a good IT practitioner, I think respect is one of my strengths. I try to listen to my classmates, teachers, and family when they need help with something related to technology. I also try to explain things in a simple way instead of making someone feel bad for not understanding. However, I know that I still need to improve when it comes to being reliable. Sometimes I underestimate how long a programming activity or school project will take, which leads me to work close to the deadline. I am trying to improve this by managing my time better and starting my tasks earlier. I know that being on time and doing your part is important, especially when working with a group.</p>
 
-            <div class="reflection-paragraph">
-              <p>If I noticed that someone was not keeping their password private, I would not try to use their account or share their password with anyone. I would remind them to keep their password safe and not give it to other people. As an IT student, I should understand that passwords and other personal information should be kept private. Simple actions like this can help prevent problems with someone's account.</p>
-            </div>
+                    <p class="word-paragraph">Keeping information private is also an important part of being an IT professional. IT workers sometimes have access to passwords, student information, employee records, and other private files. We should not look at or share information that we are not supposed to access. Having access to someone's information does not mean we have the right to use it. We should keep passwords safe, follow the rules of the organization, and ask for permission before sharing private information. This helps protect people and prevents problems caused by the misuse of information.</p>
 
-            <div class="reflection-paragraph">
-              <p>I also learned that being professional applies to how I act online. As an IT student, I should be careful about what I post, comment, and share on social media. I should avoid posting things that could cause problems for me or other people. I should also be careful when sharing school or work-related information. The way I act online is also part of how people see me, so I need to think before I post something.</p>
-            </div>
+                    <p class="word-paragraph">I can show professionalism in school, especially when working on group programming projects. If we encounter bugs or problems, I should not blame my teammates. Instead, I should focus on my assigned work, communicate with the group, and help find a solution. If I make a mistake in a future job, such as changing something incorrectly in a system or deleting important data, I should be honest about it and inform the person in charge. Hiding the mistake could make the problem worse.</p>
 
-            <div class="reflection-paragraph">
-              <p>Technology is always changing, so I know that I still have a lot to learn. New programming languages, software, cybersecurity issues, and other technologies continue to develop. I want to keep improving my skills even after I graduate. I plan to learn more about programming, cybersecurity, and other areas of IT through school, online resources, and personal projects. I know I will not learn everything at once, but I want to keep learning and improving as I become a better IT professional.</p>
-            </div>
+                    <p class="word-paragraph">If I noticed that someone was not keeping their password private, I would not try to use their account or share their password with anyone. I would remind them to keep their password safe and not give it to other people. As an IT student, I should understand that passwords and other personal information should be kept private. Simple actions like this can help prevent problems with someone's account.</p>
 
-          </div>
-        </article>
+                    <p class="word-paragraph">I also learned that being professional applies to how I act online. As an IT student, I should be careful about what I post, comment, and share on social media. I should avoid posting things that could cause problems for me or other people. I should also be careful when sharing school or work-related information. The way I act online is also part of how people see me, so I need to think before I post something.</p>
 
-        <!-- Personal Commitment Section -->
-        <div class="commitment-section">
-          <div class="commitment-header">
-            <span class="section-tag">Personal Commitment</span>
-            <h2 class="section-heading">As a future IT professional, <span class="gradient-text">I commit myself to&hellip;</span></h2>
-          </div>
+                    <p class="word-paragraph">Technology is always changing, so I know that I still have a lot to learn. New programming languages, software, cybersecurity issues, and other technologies continue to develop. I want to keep improving my skills even after I graduate. I plan to learn more about programming, cybersecurity, and other areas of IT through school, online resources, and personal projects. I know I will not learn everything at once, but I want to keep learning and improving as I become a better IT professional.</p>
 
-          <div class="commitment-grid">
-            <div class="commitment-card">
-              <div class="commitment-icon">📚</div>
-              <h3>1. Continuous Learning</h3>
-              <p>I will dedicate myself to earning relevant certifications, reading technical documentation, and staying updated with emerging technologies.</p>
-            </div>
-            <div class="commitment-card">
-              <div class="commitment-icon">⚖️</div>
-              <h3>2. Ethical Standards</h3>
-              <p>I will uphold ethical standards by protecting confidential information, respecting intellectual property, and refusing to engage in software piracy or plagiarism.</p>
-            </div>
-            <div class="commitment-card">
-              <div class="commitment-icon">🛡️</div>
-              <h3>3. Accountability and Reliability</h3>
-              <p>I will practice accountability and reliability by meeting deadlines, communicating honestly with my team, and taking ownership of both my successes and my mistakes.</p>
-            </div>
-          </div>
-        </div>
+                    <h3 class="word-section-heading">Personal Commitment</h3>
+                    <p class="word-paragraph" style="text-indent:0">As a future IT professional, I commit myself to:</p>
+
+                    <ul class="word-commitment-list">
+                      <li class="word-commitment-item">
+                        <strong>1. Continuous Learning</strong>
+                        <p>I will dedicate myself to earning relevant certifications, reading technical documentation, and staying updated with emerging technologies.</p>
+                      </li>
+                      <li class="word-commitment-item">
+                        <strong>2. Ethical Standards</strong>
+                        <p>I will uphold ethical standards by protecting confidential information, respecting intellectual property, and refusing to engage in software piracy or plagiarism.</p>
+                      </li>
+                      <li class="word-commitment-item">
+                        <strong>3. Accountability and Reliability</strong>
+                        <p>I will practice accountability and reliability by meeting deadlines, communicating honestly with my team, and taking ownership of both my successes and my mistakes.</p>
+                      </li>
+                    </ul>
+
+                    <div class="word-signature">
+                      <strong>Brenan Jay Reconalla</strong>
+                      <span>Bachelor of Science in Information Technology</span>
+                    </div>
+                  </div><!-- end .word-page -->
+                </div><!-- end .word-doc -->
+              </div><!-- end .doc-wrapper -->
+            </div><!-- end .accordion-content -->
+          </div><!-- end .accordion-item -->
+
+        </div><!-- end .activity-accordion -->
 
         <!-- Nav Buttons -->
-        <div style="margin-top: 3.5rem; text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+        <div style="text-align: center; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-top: 1rem;">
           <a href="index.html" class="btn btn-outline">&larr; Back to Home</a>
-          <a href="fivers.html" class="btn btn-primary">Review The 5 R's &rarr;</a>
+          <a href="certificate.html" class="btn btn-primary">View Certificates &rarr;</a>
         </div>
 
       </section>
 
-      <!-- Quote Banner Section -->
+      <!-- Quote Banner -->
       <section class="quote-section container">
         <div class="quote-box">
           <div class="quote-icon">&ldquo;</div>
@@ -149,7 +464,6 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <footer>
       <div class="container footer-content">
         <p class="footer-copy">&copy; 2026 Brenan Jay Reconalla | BSIT Professionalism Portfolio</p>
@@ -159,14 +473,36 @@
   </div>
 
   <script>
+    // Mobile nav toggle
     const menuBtn = document.getElementById('menu-btn');
     const navMenu = document.getElementById('nav-menu');
-
     if (menuBtn && navMenu) {
-      menuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
-      });
+      menuBtn.addEventListener('click', () => navMenu.classList.toggle('show'));
     }
+
+    // Accordion expand/collapse
+    document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const item = trigger.closest('.accordion-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.accordion-item').forEach(el => {
+          el.classList.remove('open');
+          el.querySelector('.accordion-trigger').setAttribute('aria-expanded', 'false');
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+          // Smooth scroll into view after expansion begins
+          setTimeout(() => {
+            item.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 100);
+        }
+      });
+    });
   </script>
 </body>
 </html>
