@@ -60,14 +60,17 @@
       background: #0b1020;
     }
 
-    /* Google Drive PDF */
-    .certificate-frame {
+    /* Google Drive PDF & Image Preview */
+    .certificate-frame,
+    .certificate-image {
       width: 100%;
       height: 200px;
       border: none;
       display: block;
       background: #fff;
-      pointer-events: none; /* Disable interaction with PDF viewer */
+      object-fit: cover;
+      object-position: center;
+      pointer-events: none; /* Disable interaction with preview */
     }
 
     /* Certificate ribbon */
@@ -860,6 +863,59 @@
 
                 <a
                   href="https://drive.google.com/file/d/1pIFk97j1j5QaZ0XBD81FpdXCqihFImey/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cert-status earned">
+                  View Certificate
+                </a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- Certificate 10: Building Your IT Career (Cloud Computing & Microsoft Credentials) -->
+
+          <div class="cert-card">
+
+            <div class="cert-preview cert-preview-2">
+
+              <span class="cert-ribbon">
+                Completed
+              </span>
+
+              <img
+                class="certificate-image"
+                src="images/certificate-cloud-microsoft.jpg"
+                alt="Certificate of Participation - Building Your IT Career: Opportunities in Cloud Computing and Microsoft Credentials"
+                loading="lazy" />
+
+            </div>
+
+            <div class="cert-body">
+
+              <span class="cert-issuer">
+                  JHCSC School of Computing Studies
+              </span>
+
+              <h2 class="cert-title">
+                Building Your IT Career: Opportunities in Cloud Computing and Microsoft Credentials
+              </h2>
+
+              <p class="cert-desc">
+                Certificate of Participation awarded to Brenan Jay Reconalla by JHCSC School of Computing Studies for actively participating in the seminar conducted by Ms. Mizel Dane G. Narag (Cloud Solution Engineer) at JHCSC EB AVR.
+              </p>
+
+              <div class="cert-footer">
+
+                <span class="cert-date">
+                  📅 13 Oct 2026
+                </span>
+
+                <a
+                  href="images/certificate-cloud-microsoft.jpg"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cert-status earned">
