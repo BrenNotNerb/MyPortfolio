@@ -56,7 +56,6 @@
       align-items: center;
       justify-content: center;
       overflow: hidden;
-      pointer-events: none; /* Prevent clicking/zooming the certificate */
       background: #0b1020;
     }
 
@@ -71,6 +70,45 @@
       object-fit: cover;
       object-position: center;
       pointer-events: none; /* Disable interaction with preview */
+    }
+
+    /* Click-to-preview placeholder */
+    .cert-preview-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .cert-preview-placeholder:hover {
+      background: linear-gradient(145deg, #1e293b 0%, #334155 100%);
+    }
+    .cert-preview-placeholder .preview-icon {
+      font-size: 2.5rem;
+      opacity: 0.7;
+    }
+    .cert-preview-placeholder .preview-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .cert-preview.loaded {
+      pointer-events: auto;
+    }
+    .cert-preview.loaded .certificate-frame {
+      pointer-events: none;
+    }
+
+    /* content-visibility for off-screen cards */
+    .cert-card {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 480px;
     }
 
     /* Certificate ribbon */
@@ -286,7 +324,9 @@
         <button
           class="menu-toggle"
           id="menu-btn"
-          aria-label="Toggle navigation"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="nav-menu"
         >
           ☰
         </button>
@@ -390,12 +430,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1Du4kTVUiLs4zCQvCEK9Jxfa7Zp4wx9CX/preview"
-                title="Certificate 1"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1Du4kTVUiLs4zCQvCEK9Jxfa7Zp4wx9CX/preview"
+                data-title="IT Professionalism &amp; Ethics Certificate"
+                aria-label="Click to preview IT Professionalism &amp; Ethics certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -403,7 +444,7 @@
             <div class="cert-body">
 
               <span class="cert-issuer">
-                 Cisco Networking Academy &bull; DICT
+                Online / Self-paced
               </span>
 
               <h2 class="cert-title">
@@ -448,12 +489,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1n62i5R5wIvCZeFA6AE91qZiT5TPW2TGH/preview"
-                title="Certificate 2"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1n62i5R5wIvCZeFA6AE91qZiT5TPW2TGH/preview"
+                data-title="Web Development Fundamentals Certificate"
+                aria-label="Click to preview Web Development Fundamentals certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -461,7 +503,7 @@
             <div class="cert-body">
 
               <span class="cert-issuer">
-                Cisco Networking Academy &bull; DICT
+                Online / Self-paced
               </span>
 
               <h2 class="cert-title">
@@ -505,12 +547,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1M3Bzs9UVO5roTbEdaiKmHS15lgGOHnie/preview"
-                title="Certificate 3"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1M3Bzs9UVO5roTbEdaiKmHS15lgGOHnie/preview"
+                data-title="Cybersecurity Awareness Basics Certificate"
+                aria-label="Click to preview Cybersecurity Awareness Basics certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -518,7 +561,7 @@
             <div class="cert-body">
 
               <span class="cert-issuer">
-                  Cisco Networking Academy &bull; DICT
+                 Online / Self-paced
               </span>
 
               <h2 class="cert-title">
@@ -563,19 +606,20 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1NZ8niZ4Mx4nS2upQjCFhxGEeOIQhkbFV/preview"
-                title="Certificate 4"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1NZ8niZ4Mx4nS2upQjCFhxGEeOIQhkbFV/preview"
+                data-title="Team Collaboration &amp; Project Management Certificate"
+                aria-label="Click to preview Team Collaboration &amp; Project Management certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
             <div class="cert-body">
 
               <span class="cert-issuer">
-                 Cisco Networking Academy &bull; DICT
+                  Online / Self-paced
               </span>
 
               <h2 class="cert-title">
@@ -618,19 +662,20 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1XsIVFn8QdgxgnVj4TJF0PSfvfdcOcUSt/preview"
-                title="Certificate 5"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1XsIVFn8QdgxgnVj4TJF0PSfvfdcOcUSt/preview"
+                data-title="Certificate of Completion"
+                aria-label="Click to preview Certificate of Completion">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
             <div class="cert-body">
 
               <span class="cert-issuer">
-                  MPUA
+                  Online / Self-paced
               </span>
 
               <h2 class="cert-title">
@@ -672,12 +717,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1M3Bzs9UVO5roTbEdaiKmHS15lgGOHnie/preview"
-                title="Certificate 6"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1M3Bzs9UVO5roTbEdaiKmHS15lgGOHnie/preview"
+                data-title="Core Generative AI Skills Certificate"
+                aria-label="Click to preview Core Generative AI Skills certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -725,12 +771,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1yy5Z33VHpkRbXGhU38Rt3DlhX16VdKfS/preview"
-                title="Certificate 7"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1yy5Z33VHpkRbXGhU38Rt3DlhX16VdKfS/preview"
+                data-title="Find Insights with AI Certificate"
+                aria-label="Click to preview Find Insights with AI certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -778,12 +825,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/16nAE2naWCegETou_yuKaF3CCYFKejMss/preview"
-                title="Certificate 8 - Soft Skills Seminar"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/16nAE2naWCegETou_yuKaF3CCYFKejMss/preview"
+                data-title="Soft Skills Seminar Certificate"
+                aria-label="Click to preview Soft Skills Seminar certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -832,12 +880,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1pIFk97j1j5QaZ0XBD81FpdXCqihFImey/preview"
-                title="Certificate 9 - Introduction to Cybersecurity"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1pIFk97j1j5QaZ0XBD81FpdXCqihFImey/preview"
+                data-title="Introduction to Cybersecurity Certificate"
+                aria-label="Click to preview Introduction to Cybersecurity certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -886,12 +935,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1AJgyUiHac4fAmKmEPjxADrd7rVvmC2Yj/preview"
-                title="Certificate 10 - Building Your IT Career: Opportunities in Cloud Computing and Microsoft Credentials"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1AJgyUiHac4fAmKmEPjxADrd7rVvmC2Yj/preview"
+                data-title="Building Your IT Career Certificate"
+                aria-label="Click to preview Building Your IT Career certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -940,12 +990,13 @@
                 Completed
               </span>
 
-              <iframe
-                class="certificate-frame"
-                src="https://drive.google.com/file/d/1bl5aXFdu2W87DsUYeJPgtvCKDtDobkM-/preview"
-                title="Certificate 11 - Build your Resume with AI"
-                loading="lazy">
-              </iframe>
+              <button type="button" class="cert-preview-placeholder"
+                data-src="https://drive.google.com/file/d/1bl5aXFdu2W87DsUYeJPgtvCKDtDobkM-/preview"
+                data-title="Build your Resume with AI Certificate"
+                aria-label="Click to preview Build your Resume with AI certificate">
+                <span class="preview-icon" aria-hidden="true">📜</span>
+                <span class="preview-label">Click to preview</span>
+              </button>
 
             </div>
 
@@ -1084,23 +1135,31 @@
   </div>
 
 
-  <!-- Navigation JavaScript -->
-
+  <!-- Navigation & Preview JavaScript -->
   <script>
-
     const menuBtn = document.getElementById("menu-btn");
     const navMenu = document.getElementById("nav-menu");
 
     if (menuBtn && navMenu) {
-
       menuBtn.addEventListener("click", () => {
-
-        navMenu.classList.toggle("show");
-
+        const isOpen = navMenu.classList.toggle("show");
+        menuBtn.setAttribute("aria-expanded", String(isOpen));
       });
-
     }
 
+    // Click-to-preview: load iframe only when user clicks
+    document.querySelectorAll('.cert-preview-placeholder').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const preview = btn.closest('.cert-preview');
+        const iframe = document.createElement('iframe');
+        iframe.className = 'certificate-frame';
+        iframe.src = btn.dataset.src;
+        iframe.title = btn.dataset.title;
+        iframe.loading = 'lazy';
+        preview.classList.add('loaded');
+        btn.replaceWith(iframe);
+      }, { once: true });
+    });
   </script>
 
 </body>
