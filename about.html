@@ -5,16 +5,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me | Brenan Jay Reconalla - IT Professionalism</title>
   <meta name="description" content="Learn more about Brenan Jay Reconalla, a Bachelor of Science in Information Technology student committed to competence, integrity, and respect." />
+  <meta name="theme-color" content="#070a13" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
 
+  <!-- Preload profile photo -->
+  <link rel="preload" as="image" href="images/profile.jpeg" fetchpriority="high" />
+
   <!-- Shared Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Ambient Glow Background -->
   <div class="ambient-glow" aria-hidden="true">
@@ -27,20 +35,22 @@
     <!-- Header & Navigation -->
     <header>
       <div class="container nav-container">
-        <a href="index.html" class="brand" id="nav-brand">
-          <div class="brand-avatar">BR</div>
+        <a href="index.html" class="brand" id="nav-brand" aria-label="Brenan Jay Reconalla - Home">
+          <div class="brand-avatar" aria-hidden="true">BR</div>
           <div class="brand-info">
             <span class="brand-name">Brenan Jay Reconalla</span>
             <span class="brand-tag">BSIT Student</span>
           </div>
         </a>
 
-        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu">☰</button>
+        <button class="menu-toggle" id="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span aria-hidden="true">☰</span>
+        </button>
 
-        <nav>
+        <nav aria-label="Main navigation">
           <ul class="nav-links" id="nav-menu">
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" class="active">About Me</a></li>
+            <li><a href="about.html" class="active" aria-current="page">About Me</a></li>
             <li><a href="fivers.html">The 5 R's</a></li>
             <li><a href="activity.html">Activity</a></li>
             <li><a href="certificate.html">Certificates</a></li>
@@ -49,11 +59,11 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <!-- Page Header -->
       <section class="page-header container">
         <div class="badge">
-          <span class="badge-indicator"></span>
+          <span class="badge-indicator" aria-hidden="true"></span>
           Personal Profile &amp; Background
         </div>
         <h1 class="section-heading">About <span class="gradient-text">Me</span></h1>
@@ -66,11 +76,11 @@
           <div class="profile-visual">
             <div class="avatar-wrapper">
               <div class="avatar-box">
-                <img src="e4738e9d-99d1-4958-b0ec-828e7ae6f38b.jpg" alt="Brenan Jay Reconalla" class="avatar-img" />
+                <img src="images/profile.jpeg" alt="Photo of Brenan Jay Reconalla" class="avatar-img" width="160" height="160" fetchpriority="high" decoding="async" />
               </div>
             </div>
             <div class="status-pill">
-              <span>●</span> In Learning &amp; Growth Mode
+              <span aria-hidden="true">●</span> In Learning &amp; Growth Mode
             </div>
           </div>
 
@@ -84,21 +94,21 @@
             <div class="pillars-mini-grid">
               <div class="mini-pill">
                 <div class="mini-pill-header">
-                  <span>🎯</span> Competence First
+                  <span aria-hidden="true">🎯</span> Competence First
                 </div>
                 <p>Committed to mastering software fundamentals, system logic, and modern tools.</p>
               </div>
 
               <div class="mini-pill">
                 <div class="mini-pill-header">
-                  <span>⚖️</span> Ethical Responsibility
+                  <span aria-hidden="true">⚖️</span> Ethical Responsibility
                 </div>
                 <p>Prioritizing data confidentiality, user privacy, and honest practices.</p>
               </div>
 
               <div class="mini-pill">
                 <div class="mini-pill-header">
-                  <span>🤝</span> Mutual Respect
+                  <span aria-hidden="true">🤝</span> Mutual Respect
                 </div>
                 <p>Treating collaborators and users with empathy, patience, and clear communication.</p>
               </div>
@@ -109,7 +119,7 @@
         <!-- Vision and Philosophy Cards -->
         <div class="preview-grid" style="margin-top: 2rem;">
           <div class="preview-card">
-            <span class="preview-icon">💡</span>
+            <span class="preview-icon" aria-hidden="true">💡</span>
             <h3 class="preview-title">My Philosophy</h3>
             <p class="preview-desc">
               Technology is a tool that empowers people. True professionalism lies in balancing technical ingenuity with a strong moral compass that protects and serves society.
@@ -117,7 +127,7 @@
           </div>
 
           <div class="preview-card">
-            <span class="preview-icon">🚀</span>
+            <span class="preview-icon" aria-hidden="true">🚀</span>
             <h3 class="preview-title">My Vision</h3>
             <p class="preview-desc">
               To grow into a reliable, competent IT professional who contributes meaningful, secure, and user-centered digital solutions to the modern tech ecosystem.
@@ -125,7 +135,7 @@
           </div>
 
           <div class="preview-card">
-            <span class="preview-icon">📖</span>
+            <span class="preview-icon" aria-hidden="true">📖</span>
             <h3 class="preview-title">Read Next: The 5 R's</h3>
             <p class="preview-desc">
               Discover the 5 guiding principles of IT Professionalism that shape my day-to-day decisions and technical habits.
@@ -138,7 +148,7 @@
       <!-- Quote Banner Section -->
       <section class="quote-section container">
         <div class="quote-box">
-          <div class="quote-icon">&ldquo;</div>
+          <div class="quote-icon" aria-hidden="true">&ldquo;</div>
           <blockquote class="quote-text">
             A good IT professional does not only know how technology works; they know how to use technology responsibly, ethically, and professionally.
           </blockquote>
@@ -157,12 +167,35 @@
   </div>
 
   <script>
+    // Mobile navigation toggle with accessibility keyboard support
     const menuBtn = document.getElementById('menu-btn');
     const navMenu = document.getElementById('nav-menu');
 
     if (menuBtn && navMenu) {
-      menuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
+      const toggleMenu = (open) => {
+        const isOpen = open !== undefined ? open : !navMenu.classList.contains('show');
+        navMenu.classList.toggle('show', isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      };
+
+      menuBtn.addEventListener('click', () => toggleMenu());
+
+      // Close menu on Escape key press
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+          toggleMenu(false);
+          menuBtn.focus();
+        }
+      });
+
+      // Close menu when any nav link is clicked
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navMenu.classList.contains('show')) {
+            toggleMenu(false);
+          }
+        });
       });
     }
   </script>
