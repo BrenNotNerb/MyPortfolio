@@ -9,7 +9,7 @@
   --secondary: #06b6d4;
   --accent: #ec4899;
   --text: #f8fafc;
-  --text-muted: #94a3b8;
+  --text-muted: #b6c0d4;
   --card-radius: 20px;
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -887,7 +887,23 @@ footer {
 
 .footer-sub {
   font-size: 0.85rem;
-  color: #64748b;
+  color: #8896ab;
+}
+
+/* Skip rendering of off-screen cards until needed */
+.cert-card, .pillar-card, .activity-card, .accordion-item {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 400px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Responsive */
