@@ -17,6 +17,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" />
   </noscript>
 
+  <!-- Preload profile photo with high priority -->
+  <link rel="preload" as="image" href="images/profile.jpeg" fetchpriority="high" />
+
   <!-- Shared Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -63,6 +66,17 @@
     <main id="main-content">
       <!-- Hero Section -->
       <section class="hero container">
+        <div class="hero-avatar-box">
+          <img src="images/profile.jpeg"
+               onerror="if (this.src.indexOf('profile.jpg') === -1) { this.src = 'profile.jpg'; }"
+               width="120"
+               height="120"
+               alt="Photo of Brenan Jay Reconalla"
+               class="hero-avatar-img"
+               fetchpriority="high"
+               decoding="async" />
+        </div>
+
         <div class="badge">
           <span class="badge-indicator" aria-hidden="true"></span>
           BSIT Student | Future IT Professional
