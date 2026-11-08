@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home | Brenan Jay Reconalla - IT Professionalism Journey</title>
   <meta name="description" content="Welcome to the IT Professionalism Portfolio of Brenan Jay Reconalla, BSIT student. Building competence, integrity, and ethical responsibility." />
+  <meta name="theme-color" content="#070a13" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎓</text></svg>" />
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -35,11 +37,11 @@
           </div>
         </a>
 
-        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu">☰</button>
+        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
 
         <nav>
           <ul class="nav-links" id="nav-menu">
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
             <li><a href="about.html">About Me</a></li>
             <li><a href="fivers.html">The 5 R's</a></li>
             <li><a href="activity.html">Activity</a></li>
@@ -138,7 +140,8 @@
 
     if (menuBtn && navMenu) {
       menuBtn.addEventListener('click', () => {
-        navMenu.classList.toggle('show');
+        const isOpen = navMenu.classList.toggle('show');
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
       });
     }
   </script>
