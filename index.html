@@ -18,6 +18,9 @@
 </head>
 <body>
 
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- Ambient Glow Background -->
   <div class="ambient-glow" aria-hidden="true">
     <div class="glow-sphere sphere-1"></div>
@@ -29,17 +32,19 @@
     <!-- Header & Navigation -->
     <header>
       <div class="container nav-container">
-        <a href="index.html" class="brand" id="nav-brand">
-          <div class="brand-avatar">BR</div>
+        <a href="index.html" class="brand" id="nav-brand" aria-label="Brenan Jay Reconalla - Home">
+          <div class="brand-avatar" aria-hidden="true">BR</div>
           <div class="brand-info">
             <span class="brand-name">Brenan Jay Reconalla</span>
             <span class="brand-tag">BSIT Student</span>
           </div>
         </a>
 
-        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">☰</button>
+        <button class="menu-toggle" id="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span aria-hidden="true">☰</span>
+        </button>
 
-        <nav>
+        <nav aria-label="Main navigation">
           <ul class="nav-links" id="nav-menu">
             <li><a href="index.html" class="active" aria-current="page">Home</a></li>
             <li><a href="about.html">About Me</a></li>
@@ -51,11 +56,11 @@
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <!-- Hero Section -->
       <section class="hero container">
         <div class="badge">
-          <span class="badge-indicator"></span>
+          <span class="badge-indicator" aria-hidden="true"></span>
           BSIT Student | Future IT Professional
         </div>
         <h1 class="hero-title">
@@ -82,7 +87,7 @@
         <div class="preview-grid">
           <!-- Card 1: About Me -->
           <article class="preview-card">
-            <span class="preview-icon">👨‍💻</span>
+            <span class="preview-icon" aria-hidden="true">👨‍💻</span>
             <h3 class="preview-title">About Me</h3>
             <p class="preview-desc">
               Discover my background as a Bachelor of Science in Information Technology student, my learning philosophy, and personal commitment to values and respect.
@@ -92,7 +97,7 @@
 
           <!-- Card 2: The 5 R's -->
           <article class="preview-card">
-            <span class="preview-icon">🛡️</span>
+            <span class="preview-icon" aria-hidden="true">🛡️</span>
             <h3 class="preview-title">The 5 R's of IT</h3>
             <p class="preview-desc">
               Explore the core pillars of IT professionalism: Responsibility, Respect, Reliability, Responsibility for Ethics, and Readiness to Learn.
@@ -102,7 +107,7 @@
 
           <!-- Card 3: Activity -->
           <article class="preview-card">
-            <span class="preview-icon">📋</span>
+            <span class="preview-icon" aria-hidden="true">📋</span>
             <h3 class="preview-title">Activity</h3>
             <p class="preview-desc">
               Review my coursework milestones, case studies on tech ethics, responsive web implementation, and collaborative team practices.
@@ -115,7 +120,7 @@
       <!-- Quote Banner Section -->
       <section class="quote-section container">
         <div class="quote-box">
-          <div class="quote-icon">&ldquo;</div>
+          <div class="quote-icon" aria-hidden="true">&ldquo;</div>
           <blockquote class="quote-text">
             A good IT professional does not only know how technology works; they know how to use technology responsibly, ethically, and professionally.
           </blockquote>
@@ -134,14 +139,35 @@
   </div>
 
   <script>
-    // Mobile navigation toggle
+    // Mobile navigation toggle with accessibility keyboard support
     const menuBtn = document.getElementById('menu-btn');
     const navMenu = document.getElementById('nav-menu');
 
     if (menuBtn && navMenu) {
-      menuBtn.addEventListener('click', () => {
-        const isOpen = navMenu.classList.toggle('show');
+      const toggleMenu = (open) => {
+        const isOpen = open !== undefined ? open : !navMenu.classList.contains('show');
+        navMenu.classList.toggle('show', isOpen);
         menuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      };
+
+      menuBtn.addEventListener('click', () => toggleMenu());
+
+      // Close menu on Escape key press
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+          toggleMenu(false);
+          menuBtn.focus();
+        }
+      });
+
+      // Close menu when any nav link is clicked
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navMenu.classList.contains('show')) {
+            toggleMenu(false);
+          }
+        });
       });
     }
   </script>
