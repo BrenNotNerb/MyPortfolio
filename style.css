@@ -419,6 +419,32 @@ button:focus-visible,
   justify-content: center;
 }
 
+.hero-avatar-box {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--border-accent);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(99, 102, 241, 0.3);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(6, 182, 212, 0.2));
+  transition: var(--transition);
+}
+
+.hero-avatar-box:hover {
+  transform: scale(1.05);
+  border-color: var(--primary);
+  box-shadow: 0 15px 40px rgba(99, 102, 241, 0.45);
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
 /* Home Overview Preview Cards */
 .preview-grid {
   display: grid;
@@ -716,7 +742,7 @@ button:focus-visible,
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--primary);
+  color: #a5b4fc;
   margin-bottom: 1rem;
   display: inline-block;
 }
