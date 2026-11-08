@@ -18,8 +18,6 @@
   </noscript>
 
   <!-- Preload profile photo with high priority -->
-  <link rel="preload" as="image" href="images/profile.jpeg" fetchpriority="high" />
-
   <!-- Shared Stylesheet -->
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -39,12 +37,8 @@
     <!-- Header & Navigation -->
     <header>
       <div class="container nav-container">
-        <a href="index.html" class="brand" id="nav-brand" aria-label="Brenan Jay Reconalla - Home">
+        <a href="index.html" class="brand" id="nav-brand" aria-label="Home">
           <div class="brand-avatar" aria-hidden="true">BR</div>
-          <div class="brand-info">
-            <span class="brand-name">Brenan Jay Reconalla</span>
-            <span class="brand-tag">BSIT Student</span>
-          </div>
         </a>
 
         <button class="menu-toggle" id="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
@@ -66,17 +60,6 @@
     <main id="main-content">
       <!-- Hero Section -->
       <section class="hero container">
-        <div class="hero-avatar-box">
-          <img src="images/profile.jpeg"
-               onerror="if (this.src.indexOf('profile.jpg') === -1) { this.src = 'profile.jpg'; }"
-               width="120"
-               height="120"
-               alt="Photo of Brenan Jay Reconalla"
-               class="hero-avatar-img"
-               fetchpriority="high"
-               decoding="async" />
-        </div>
-
         <div class="badge">
           <span class="badge-indicator" aria-hidden="true"></span>
           BSIT Student | Future IT Professional
