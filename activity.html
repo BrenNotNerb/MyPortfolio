@@ -8,9 +8,14 @@
   <meta name="theme-color" content="#070a13" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>" />
 
+  <!-- Google Fonts Preconnect & Async Swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=Merriweather:wght@400;700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=Merriweather:wght@400;700&display=swap" media="print" onload="this.media='all'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=Merriweather:wght@400;700&display=swap" />
+  </noscript>
 
   <link rel="stylesheet" href="style.css" />
 
@@ -379,7 +384,7 @@
 
           <!-- Activity: Reflection Paper -->
           <div class="accordion-item" id="accordion-reflection">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="content-reflection" id="trigger-reflection">
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="content-reflection" id="trigger-reflection">
               <div class="accordion-trigger-left">
                 <span class="accordion-label">Activity &bull; Reflection Paper</span>
                 <span class="accordion-title">Professionalism in Information Technology</span>
@@ -452,7 +457,7 @@
 
           <!-- Activity: Application Letter -->
           <div class="accordion-item" id="accordion-application-letter">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="content-application-letter" id="trigger-application-letter">
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="content-application-letter" id="trigger-application-letter">
               <div class="accordion-trigger-left">
                 <span class="accordion-label">Activity &bull; Application Letter</span>
                 <span class="accordion-title">Application for Data Encoder &mdash; DPWH</span>
@@ -510,7 +515,7 @@
 
           <!-- Activity: Soft Skills Seminar Reflection -->
           <div class="accordion-item" id="accordion-soft-skills">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="content-soft-skills" id="trigger-soft-skills">
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="content-soft-skills" id="trigger-soft-skills">
               <div class="accordion-trigger-left">
                 <span class="accordion-label">Activity &bull; Reflection Paper</span>
                 <span class="accordion-title">Soft Skills Seminar</span>
@@ -564,7 +569,7 @@
 
           <!-- Activity: AI Literacy Reflection -->
           <div class="accordion-item" id="accordion-ai-literacy">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="content-ai-literacy" id="trigger-ai-literacy">
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="content-ai-literacy" id="trigger-ai-literacy">
               <div class="accordion-trigger-left">
                 <span class="accordion-label">Activity &bull; Reflection Paper</span>
                 <span class="accordion-title">Introduction to AI Literacy and Responsible Use</span>
@@ -618,7 +623,7 @@
 
           <!-- Activity: Cloud Computing & Microsoft Credentials Reflection -->
           <div class="accordion-item" id="accordion-cloud-credentials">
-            <button class="accordion-trigger" aria-expanded="false" aria-controls="content-cloud-credentials" id="trigger-cloud-credentials">
+            <button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="content-cloud-credentials" id="trigger-cloud-credentials">
               <div class="accordion-trigger-left">
                 <span class="accordion-label">Activity &bull; Reflection Paper</span>
                 <span class="accordion-title">Building Your IT Career: Opportunities in Cloud Computing and Microsoft Credentials</span>
