@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Activity | Brenan Jay Reconalla - IT Professionalism</title>
   <meta name="description" content="Academic activities and reflection papers by Brenan Jay Reconalla, BSIT student." />
+  <meta name="theme-color" content="#070a13" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📋</text></svg>" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -322,6 +324,9 @@
 </head>
 <body>
 
+  <!-- Skip link for keyboard accessibility -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <div class="ambient-glow" aria-hidden="true">
     <div class="glow-sphere sphere-1"></div>
     <div class="glow-sphere sphere-2"></div>
@@ -332,33 +337,35 @@
     <!-- Header & Navigation -->
     <header>
       <div class="container nav-container">
-        <a href="index.html" class="brand" id="nav-brand">
-          <div class="brand-avatar">BR</div>
+        <a href="index.html" class="brand" id="nav-brand" aria-label="Brenan Jay Reconalla - Home">
+          <div class="brand-avatar" aria-hidden="true">BR</div>
           <div class="brand-info">
             <span class="brand-name">Brenan Jay Reconalla</span>
             <span class="brand-tag">BSIT Student</span>
           </div>
         </a>
 
-        <button class="menu-toggle" id="menu-btn" aria-label="Toggle navigation">☰</button>
+        <button class="menu-toggle" id="menu-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="nav-menu">
+          <span aria-hidden="true">☰</span>
+        </button>
 
-        <nav>
+        <nav aria-label="Main navigation">
           <ul class="nav-links" id="nav-menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="about.html">About Me</a></li>
             <li><a href="fivers.html">The 5 R's</a></li>
-            <li><a href="activity.html" class="active">Activity</a></li>
+            <li><a href="activity.html" class="active" aria-current="page">Activity</a></li>
             <li><a href="certificate.html">Certificates</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main>
+    <main id="main-content">
       <!-- Page Header -->
       <section class="page-header container">
         <div class="badge">
-          <span class="badge-indicator"></span>
+          <span class="badge-indicator" aria-hidden="true"></span>
           Academic &amp; Practical Application
         </div>
         <h1 class="section-heading">My Certificates &amp; <span class="gradient-text">Activities</span></h1>
@@ -678,7 +685,7 @@
       <!-- Quote Banner -->
       <section class="quote-section container">
         <div class="quote-box">
-          <div class="quote-icon">&ldquo;</div>
+          <div class="quote-icon" aria-hidden="true">&ldquo;</div>
           <blockquote class="quote-text">
             A good IT professional does not only know how technology works; they know how to use technology responsibly, ethically, and professionally.
           </blockquote>
@@ -696,11 +703,36 @@
   </div>
 
   <script>
-    // Mobile nav toggle
+    // Mobile nav toggle with accessibility keyboard support
     const menuBtn = document.getElementById('menu-btn');
     const navMenu = document.getElementById('nav-menu');
+
     if (menuBtn && navMenu) {
-      menuBtn.addEventListener('click', () => navMenu.classList.toggle('show'));
+      const toggleMenu = (open) => {
+        const isOpen = open !== undefined ? open : !navMenu.classList.contains('show');
+        navMenu.classList.toggle('show', isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+      };
+
+      menuBtn.addEventListener('click', () => toggleMenu());
+
+      // Close menu on Escape key press
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('show')) {
+          toggleMenu(false);
+          menuBtn.focus();
+        }
+      });
+
+      // Close menu when any nav link is clicked
+      navMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (navMenu.classList.contains('show')) {
+            toggleMenu(false);
+          }
+        });
+      });
     }
 
     // Accordion expand/collapse
